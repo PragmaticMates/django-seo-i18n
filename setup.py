@@ -4,7 +4,7 @@ from setuptools import setup
 from seo_i18n import VERSION
 
 setup(
-    name='django-seo',
+    name='django-seo-i18n',
     version=VERSION,
     description='SEO functionality for any object or custom URL with multilingual support',
     long_description=open('README.md').read(),
@@ -26,7 +26,7 @@ setup(
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'Framework :: Django',
-        'OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Development Status :: 5 - Production/Stable'
     ],
     license='LGPLv3',
