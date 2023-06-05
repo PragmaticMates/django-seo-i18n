@@ -1,9 +1,15 @@
 from django import forms
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import EMPTY_VALUES
-from django.utils.translation import ugettext_lazy as _
 
 from seo_i18n.models import Seo
+
+try:
+    # older Django
+    from django.utils.translation import ugettext_lazy as _
+except ImportError:
+    # Django >= 3
+    from django.utils.translation import gettext_lazy as _
 
 
 class SeoInlineForm(forms.ModelForm):

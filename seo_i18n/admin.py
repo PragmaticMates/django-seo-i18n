@@ -3,10 +3,16 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
 from django.core.exceptions import ImproperlyConfigured
-from django.utils.translation import ugettext_lazy as _
 
 from seo_i18n.forms import SeoInlineForm, SeoForm
 from seo_i18n.models import Seo
+
+try:
+    # older Django
+    from django.utils.translation import ugettext_lazy as _
+except ImportError:
+    # Django >= 3
+    from django.utils.translation import gettext_lazy as _
 
 
 @admin.register(Seo)

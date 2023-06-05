@@ -1,12 +1,18 @@
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from modeltrans.fields import TranslationField
 from sorl import thumbnail
 
 from seo_i18n.querysets import SeoQuerySet
+
+try:
+    # older Django
+    from django.utils.translation import ugettext_lazy as _
+except ImportError:
+    # Django >= 3
+    from django.utils.translation import gettext_lazy as _
 
 
 class Seo(models.Model):
